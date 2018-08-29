@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+#body{
+	
+	background-color: white;
+}
+
+.horizNav
+{
+	background-color: white;
+    overflow: hidden;
+    color: black;
+}
+
+.horizNav a {
+    float: left;
+    color: #272526;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
