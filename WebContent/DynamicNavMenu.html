@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="JS/index_JS.js"></script> -->
+<link rel="stylesheet" href="CSS/index_CSS.css">
+
+<script type="text/javascript">
+	function NavigationBar() {
+
+		var Appliances = [ 'Washing Machine', 'Televisions', 'Refrigerators',
+				'Air conditioners', 'Small home Appliances',
+				'Health Care Appliances' ];
+		var Televisions = [ 'Sony', 'Samsung', 'LG', 'Hisense' ];
+		var navMenu = [ 'Electronics', 'Appliances', 'Baby & Kids',
+				'Home & Furniture', 'Books', 'Gaming & Accessories' ];
+
+		var appMenu = document.getElementById('nav');
+		for (var i = 0; i < navMenu.length; i++) {
+
+			var item = document.createElement('li');
+			item.setAttribute('id', navMenu[i]);
+			item.innerHTML = '<a href="'+navMenu[i]+'.html">' + navMenu[i]
+					+ '</a>';
+			appMenu.appendChild(item);
+
+			if (navMenu[i] == 'Appliances') {
+				var submenu = document.getElementById('Appliances');
+				var item1 = document.createElement('ul');
+
+				submenu.appendChild(item1);
+				for (var j = 0; j < Appliances.length; j++) {
+					var item2 = document.createElement('li');
+					item2.setAttribute('id', Appliances[j]);
+					item2.innerHTML = '<a href="'+navMenu[i]+'/'+Appliances[j]+'.html">'
+							+ Appliances[j] + '</a>';
+					item1.appendChild(item2);
+
+					if (Appliances[j] == 'Televisions') {
+						var subSubMenu = document.getElementById('Televisions');
+						var item3 = document.createElement('ul');
+
+						subSubMenu.appendChild(item3);
+						for (var k = 0; k < Televisions.length; k++) {
+						
+							var item4 = document.createElement('li');
+
+							item4.innerHTML = '<a href="'+navMenu[i]+'/'+Appliances[j]+'/'+Televisions[k]+'.html">'
+									+ Televisions[k] + '</a>';
+							item3.appendChild(item4);
+
+						}
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+</script>
+
+
+</head>
+<body onload="NavigationBar()">
+
+	<div class="horizNav">
+		<nav>
+			<ul class="nav" id="nav">
+
+
+
+
+
+			</ul>
+
+		</nav>
+
+	</div>
+
+
+
+</body>
+</html>

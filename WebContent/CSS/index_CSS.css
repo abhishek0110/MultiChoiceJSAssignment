@@ -1,22 +1,84 @@
 @CHARSET "ISO-8859-1";
 
-#body{
-	
+#body {
 	background-color: white;
 }
 
-.horizNav
-{
-	background-color: white;
-    overflow: hidden;
-    color: black;
+nav {
+	display: block;
+	text-align: center;
 }
 
-.horizNav a {
-    float: left;
-    color: #272526;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav a {
+	display: block;
+	background: #111;
+	color: #fff;
+	text-decoration: none;
+	padding: .8em 1.8em;
+	text-transform: uppercase;
+	font-size: 80%;
+	letter-spacing: 2px;
+	text-shadow: 0 -1px 0 #000;
+	position: relative;
+}
+
+.nav a:hover {
+	background: red;
+}
+
+.nav {
+	vertical-align: top;
+	display: inline-block;
+	border-radius: 6px;
+}
+
+.nav li {
+	position: relative;
+}
+
+.nav>li {
+	float: left;
+	margin-right: 1px;
+}
+
+.nav>li>a {
+	margin-bottom: 1px;
+}
+
+.nav>li:hover, .nav>li:hover>a {
+	border-bottom-color: orange;
+}
+
+
+.nav li li a {
+	margin-top: 1px
+}
+
+/* submenu positioning*/
+.nav ul {
+	position: absolute;
+	white-space: nowrap;
+	z-index: 1;
+	left: -99999em;
+}
+
+.nav>li:hover>ul {
+	left: auto;
+	padding-top: 5px;
+	min-width: 100%;
+}
+
+.nav>li li ul {
+	border-left: 1px solid #fff;
+}
+
+.nav>li li:hover>ul {
+	left: 100%;
+	top: -1px;
 }

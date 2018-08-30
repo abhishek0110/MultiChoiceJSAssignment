@@ -1,27 +1,24 @@
 /**
  * 
  */
-
-function test()
-{
-	
-alert("Hello ");
-
-}
-
 var socket;
 
 function connect() {
 	
-	alert("Hello Web Socket Connect !!!");
+	
 	socket=new WebSocket("ws://localhost:8080/MultiChoiceJSAssignment/navData");
-	socket.onclose=function(closeEvnt)
+	socket.onopen=function(evnt)
 	{
+		alert("Inside Open !!!");
+		socket.send("Hi this is the message from Open Method !!");
+	};
+	socket.onclose=function(closeEvnt)
+	{	
 		alert("OnClose Event: "+closeEvnt);
 	};
 	socket.onmessage=function(evt) {    
 		 	
-		alert("Inside Message !!"+evt.data);
+		alert("Inside Message !!"+JSON.stringfy(evt.data));
 		
 		
         document.getElementById("rate").innerHTML=evt.data;          
@@ -29,15 +26,15 @@ function connect() {
 	
 }
 
-
-function onSendClick() {
-	alert("socket ReadyState: "+socket.readyState+"Socket Open: "+socket.OPEN);
-    /*if (socket.readyState != socket.OPEN) {
+function onSendClick(title) {
+	alert("socket ReadyState: "+socket.readyState+"Socket Open: "+socket.OPEN+" Title: "+title);
+    if (socket.readyState != socket.OPEN) {
     	alert("Socket is not opening !!!");
         console.error("webSocket is not open: " + socket.readyState);
         return;
-    }*/
-    var msg = "Connection Established !!";
+    }
+    var msg ="Hello";
     alert("Message: "+msg);
     socket.send(msg);
 }
+
